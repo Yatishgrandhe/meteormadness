@@ -48,14 +48,18 @@ export default function Home() {
   useEffect(() => {
     const handleSponsorClick = (e: Event) => {
       const target = e.target as HTMLElement;
-      if (target.textContent?.includes('Sponsor Us')) {
+      const button = target.closest('button');
+      
+      // Check if the clicked element or its parent is a "Sponsor Us" button
+      if (button && button.textContent?.includes('Sponsor Us')) {
         e.preventDefault();
+        e.stopPropagation();
         openSponsorForm();
       }
     };
 
-    document.addEventListener('click', handleSponsorClick);
-    return () => document.removeEventListener('click', handleSponsorClick);
+    document.addEventListener('click', handleSponsorClick, true);
+    return () => document.removeEventListener('click', handleSponsorClick, true);
   }, []);
 
   if (isAdminPage) {
