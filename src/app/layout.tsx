@@ -11,6 +11,13 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -19,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
         <link rel="icon" href="/images/tsa-logo.png" type="image/png" />
         <link rel="shortcut icon" href="/images/tsa-logo.png" type="image/png" />
         <link rel="apple-touch-icon" href="/images/tsa-logo.png" />
