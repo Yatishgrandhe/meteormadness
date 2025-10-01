@@ -23,7 +23,7 @@ const Navigation: React.FC = () => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+    <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 opera-optimize ${
       isScrolled ? 'bg-white/95 backdrop-blur-md shadow-xl border-b border-gray-100' : 'bg-white/10 backdrop-blur-sm'
     }`}>
       <div className="container-max">
@@ -35,7 +35,7 @@ const Navigation: React.FC = () => {
           <div className="hidden md:flex items-center space-x-10">
             <button
               onClick={() => scrollToSection('home')}
-              className={`font-semibold transition-all duration-300 hover:scale-105 ${
+              className={`font-semibold transition-colors duration-200 ${
                 isScrolled ? 'text-gray-800 hover:text-tsa-navy' : 'text-white hover:text-blue-200'
               }`}
             >
@@ -43,7 +43,7 @@ const Navigation: React.FC = () => {
             </button>
             <button
               onClick={() => scrollToSection('events')}
-              className={`font-semibold transition-all duration-300 hover:scale-105 ${
+              className={`font-semibold transition-colors duration-200 ${
                 isScrolled ? 'text-gray-800 hover:text-tsa-navy' : 'text-white hover:text-blue-200'
               }`}
             >
@@ -51,7 +51,7 @@ const Navigation: React.FC = () => {
             </button>
             <button
               onClick={() => scrollToSection('leadership')}
-              className={`font-semibold transition-all duration-300 hover:scale-105 ${
+              className={`font-semibold transition-colors duration-200 ${
                 isScrolled ? 'text-gray-800 hover:text-tsa-navy' : 'text-white hover:text-blue-200'
               }`}
             >
@@ -59,7 +59,7 @@ const Navigation: React.FC = () => {
             </button>
             <button
               onClick={() => scrollToSection('sponsors')}
-              className={`font-semibold transition-all duration-300 hover:scale-105 ${
+              className={`font-semibold transition-colors duration-200 ${
                 isScrolled ? 'text-gray-800 hover:text-tsa-navy' : 'text-white hover:text-blue-200'
               }`}
             >
@@ -67,13 +67,13 @@ const Navigation: React.FC = () => {
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className={`font-semibold transition-all duration-300 hover:scale-105 ${
+              className={`font-semibold transition-colors duration-200 ${
                 isScrolled ? 'text-gray-800 hover:text-tsa-navy' : 'text-white hover:text-blue-200'
               }`}
             >
               Contact
             </button>
-            <button className={`text-sm font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl ${
+            <button className={`text-sm font-semibold py-3 px-6 rounded-xl transition-colors duration-200 shadow-lg hover:shadow-xl ${
               isScrolled ? 'bg-tsa-navy hover:bg-blue-800 text-white' : 'bg-white/20 hover:bg-white/30 text-white border border-white/30'
             }`}>
               Sponsor Us
@@ -82,7 +82,7 @@ const Navigation: React.FC = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className={`md:hidden p-2 rounded-lg transition-colors duration-300 ${
+            className={`md:hidden p-2 rounded-lg transition-colors duration-200 ${
               isScrolled ? 'text-gray-800 hover:bg-gray-100' : 'text-white hover:bg-white/20'
             }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -95,35 +95,35 @@ const Navigation: React.FC = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-xl">
+          <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-xl opera-optimize">
             <div className="py-6 space-y-2">
               <button
                 onClick={() => scrollToSection('home')}
-                className="block w-full text-left px-6 py-4 text-gray-700 hover:text-tsa-navy hover:bg-gray-50 font-semibold text-lg transition-all duration-300"
+                className="block w-full text-left px-6 py-4 text-gray-700 hover:text-tsa-navy hover:bg-gray-50 font-semibold text-lg transition-colors duration-200"
               >
                 Home
               </button>
               <button
                 onClick={() => scrollToSection('events')}
-                className="block w-full text-left px-6 py-4 text-gray-700 hover:text-tsa-navy hover:bg-gray-50 font-semibold text-lg transition-all duration-300"
+                className="block w-full text-left px-6 py-4 text-gray-700 hover:text-tsa-navy hover:bg-gray-50 font-semibold text-lg transition-colors duration-200"
               >
                 Events
               </button>
               <button
                 onClick={() => scrollToSection('leadership')}
-                className="block w-full text-left px-6 py-4 text-gray-700 hover:text-tsa-navy hover:bg-gray-50 font-semibold text-lg transition-all duration-300"
+                className="block w-full text-left px-6 py-4 text-gray-700 hover:text-tsa-navy hover:bg-gray-50 font-semibold text-lg transition-colors duration-200"
               >
                 Leadership
               </button>
               <button
                 onClick={() => scrollToSection('sponsors')}
-                className="block w-full text-left px-6 py-4 text-gray-700 hover:text-tsa-navy hover:bg-gray-50 font-semibold text-lg transition-all duration-300"
+                className="block w-full text-left px-6 py-4 text-gray-700 hover:text-tsa-navy hover:bg-gray-50 font-semibold text-lg transition-colors duration-200"
               >
                 Sponsors
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="block w-full text-left px-6 py-4 text-gray-700 hover:text-tsa-navy hover:bg-gray-50 font-semibold text-lg transition-all duration-300"
+                className="block w-full text-left px-6 py-4 text-gray-700 hover:text-tsa-navy hover:bg-gray-50 font-semibold text-lg transition-colors duration-200"
               >
                 Contact
               </button>

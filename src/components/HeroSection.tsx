@@ -87,8 +87,8 @@ const HeroSection: React.FC = () => {
           </div>
 
           {/* Hero Image Placeholder */}
-          <div className="relative order-1 lg:order-2">
-            <div className="gradient-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 transform rotate-1 sm:rotate-2 lg:rotate-3 hover:rotate-0 transition-transform duration-500">
+          <div className="relative order-1 lg:order-2 opera-optimize">
+            <div className="gradient-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 transform rotate-1 sm:rotate-2 lg:rotate-3 hover:rotate-0 transition-transform duration-300">
               <div className="aspect-video bg-gradient-to-br from-white/20 to-white/5 rounded-xl sm:rounded-2xl flex items-center justify-center border-2 border-white/30">
                 <div className="text-center text-white spacing-y-sm">
                   <svg className="w-16 h-16 sm:w-20 sm:h-20 mx-auto opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -103,8 +103,8 @@ const HeroSection: React.FC = () => {
             </div>
             
             {/* Decorative Elements */}
-            <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-16 h-16 sm:w-24 sm:h-24 bg-tsa-red rounded-full opacity-20 blur-xl"></div>
-            <div className="absolute -bottom-3 -left-3 sm:-bottom-6 sm:-left-6 w-20 h-20 sm:w-32 sm:h-32 bg-blue-300 rounded-full opacity-20 blur-xl"></div>
+            <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-16 h-16 sm:w-24 sm:h-24 bg-tsa-red rounded-full opacity-20 blur-xl opera-optimize"></div>
+            <div className="absolute -bottom-3 -left-3 sm:-bottom-6 sm:-left-6 w-20 h-20 sm:w-32 sm:h-32 bg-blue-300 rounded-full opacity-20 blur-xl opera-optimize"></div>
           </div>
         </div>
       </div>

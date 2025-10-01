@@ -10,24 +10,49 @@
   
   body {
     font-family: 'Open Sans', sans-serif;
+    /* Opera performance optimizations */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Reduce repaints and reflows */
+    will-change: auto;
   }
   
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
   }
+  
+  /* Opera-specific optimizations */
+  * {
+    /* Reduce layout thrashing */
+    box-sizing: border-box;
+  }
+  
+  /* Optimize animations for Opera */
+  @media (prefers-reduced-motion: no-preference) {
+    .animate-smooth {
+      transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .animate-smooth {
+      transition: none;
+    }
+  }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-tsa-navy hover:bg-blue-800 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+    @apply bg-tsa-navy hover:bg-blue-800 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 shadow-lg hover:shadow-xl;
   }
   
   .btn-secondary {
-    @apply bg-tsa-red hover:bg-red-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+    @apply bg-tsa-red hover:bg-red-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-200 shadow-lg hover:shadow-xl;
   }
   
   .btn-outline {
-    @apply border-2 border-white text-white hover:bg-white hover:text-tsa-navy font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105;
+    @apply border-2 border-white text-white hover:bg-white hover:text-tsa-navy font-semibold py-4 px-8 rounded-xl transition-colors duration-200;
   }
   
   .section-padding {
@@ -51,11 +76,11 @@
   }
   
   .card {
-    @apply bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1;
+    @apply bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-200;
   }
   
   .card-compact {
-    @apply bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300;
+    @apply bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-200;
   }
   
   .gradient-bg {
@@ -98,9 +123,31 @@
   
   .backdrop-blur-md {
     backdrop-filter: blur(12px);
+    /* Opera performance optimization */
+    -webkit-backdrop-filter: blur(12px);
   }
   
   .blur-3xl {
     filter: blur(64px);
+    /* Opera performance optimization */
+    -webkit-filter: blur(64px);
+  }
+  
+  /* Opera-specific performance classes */
+  .opera-optimize {
+    /* Use transform3d to trigger hardware acceleration */
+    transform: translate3d(0, 0, 0);
+    /* Optimize for Opera's rendering engine */
+    -webkit-transform: translate3d(0, 0, 0);
+    /* Reduce paint operations */
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  /* Reduce motion for better performance */
+  .reduce-motion {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

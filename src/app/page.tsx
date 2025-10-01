@@ -13,11 +13,14 @@ import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import SponsorForm from '@/components/SponsorForm';
 import AdminPanel from '@/components/AdminPanel';
-import AdminLink from '@/components/AdminLink';
+import { useOperaOptimization } from '@/hooks/useOperaOptimization';
 
 export default function Home() {
   const [isSponsorFormOpen, setIsSponsorFormOpen] = useState(false);
   const [isAdminPage, setIsAdminPage] = useState(false);
+  
+  // Apply Opera optimizations
+  useOperaOptimization();
 
   useEffect(() => {
     // Check if we're on the admin page
@@ -73,7 +76,6 @@ export default function Home() {
       </main>
       <Footer />
       <ScrollToTop />
-      <AdminLink />
       <SponsorForm isOpen={isSponsorFormOpen} onClose={closeSponsorForm} />
     </div>
   );
