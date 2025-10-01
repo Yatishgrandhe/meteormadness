@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import WhyJoinSection from '@/components/WhyJoinSection';
@@ -17,10 +17,21 @@ import AdminLink from '@/components/AdminLink';
 
 export default function Home() {
   const [isSponsorFormOpen, setIsSponsorFormOpen] = useState(false);
+  const [isAdminPage, setIsAdminPage] = useState(false);
 
-  // Check if we're on the admin page
-  const isAdminPage = typeof window !== 'undefined' && 
-    (window.location.pathname === '/admin' || window.location.search.includes('admin=true'));
+  useEffect(() => {
+    // Check if we're on the admin page
+    const checkAdminPage = () => {
+      const admin = window.location.pathname === '/admin' || window.location.search.includes('admin=true');
+      setIsAdminPage(admin);
+    };
+
+    checkAdminPage();
+    
+    // Listen for URL changes
+    window.addEventListener('popstate', checkAdminPage);
+    return () => window.removeEventListener('popstate', checkAdminPage);
+  }, []);
 
   const openSponsorForm = () => {
     setIsSponsorFormOpen(true);
@@ -31,42 +42,39 @@ export default function Home() {
   };
 
   // Add event listener for sponsor form buttons
-  if (typeof window !== 'undefined') {
-    window.addEventListener('click', (e) => {
+  useEffect(() => {
+    const handleSponsorClick = (e: Event) => {
       const target = e.target as HTMLElement;
-      if (target.textContent?.includes('Sponsor Us') || target.textContent?.includes('Become a Sponsor')) {
+      if (target.textContent?.includes('Sponsor Us')) {
+        e.preventDefault();
         openSponsorForm();
       }
-    });
-  }
+    };
+
+    document.addEventListener('click', handleSponsorClick);
+    return () => document.removeEventListener('click', handleSponsorClick);
+  }, []);
 
   if (isAdminPage) {
-    return (
-      <div className="min-h-screen bg-gray-50">
-        <AdminPanel />
-        <AdminLink />
-      </div>
-    );
+    return <AdminPanel />;
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="App">
       <Navigation />
-      <HeroSection />
-      <WhyJoinSection />
-      <EventsSection />
-      <PhotoGallery />
-      <LeadershipSection />
-      <SponsorsSection />
-      <ContactSection />
+      <main>
+        <HeroSection />
+        <WhyJoinSection />
+        <EventsSection />
+        <PhotoGallery />
+        <LeadershipSection />
+        <SponsorsSection />
+        <ContactSection />
+      </main>
       <Footer />
       <ScrollToTop />
       <AdminLink />
-      
-      <SponsorForm 
-        isOpen={isSponsorFormOpen} 
-        onClose={closeSponsorForm} 
-      />
+      <SponsorForm isOpen={isSponsorFormOpen} onClose={closeSponsorForm} />
     </div>
   );
 }

@@ -1,35 +1,34 @@
-'use client';
+import React from 'react';
+import { leadership } from '../data/tsaData';
 
-import { tsaData } from '@/data/tsaData';
-
-const LeadershipSection = () => {
+const LeadershipSection: React.FC = () => {
   return (
-    <section id="leadership" className="py-20 bg-white">
+    <section id="leadership" className="section-padding bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="container-max">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-heading font-bold text-gray-900 mb-4">
-            Leadership Team
+        <div className="text-center mb-20">
+          <h2 className="text-5xl md:text-6xl font-heading font-bold text-gradient mb-8">
+            Our Leadership
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Meet the dedicated students leading our TSA chapter to success.
+          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            Meet the dedicated student officers and faculty advisors leading our chapter for the current school year.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {tsaData.leadership.map((leader) => (
-            <div key={leader.id} className="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
-              <div className="w-24 h-24 bg-tsa-navy rounded-full mx-auto mb-4 flex items-center justify-center">
-                <span className="text-white font-bold text-2xl">
-                  {leader.name.split(' ').map(n => n[0]).join('')}
-                </span>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {leadership.map((leader, index) => (
+            <div key={index} className="card text-center group">
+              {/* Profile Image Placeholder */}
+              <div className="w-40 h-40 mx-auto mb-8 bg-gradient-to-br from-tsa-navy to-blue-600 rounded-full flex items-center justify-center shadow-xl transform group-hover:scale-110 transition-transform duration-300">
+                <div className="text-white text-5xl font-bold">
+                  {leader.name.charAt(1) || '?'}
+                </div>
               </div>
-              <h3 className="text-xl font-heading font-semibold text-gray-900 mb-1">
+              
+              <h3 className="text-2xl font-heading font-bold text-gray-900 mb-3 group-hover:text-tsa-navy transition-colors duration-300">
                 {leader.name}
               </h3>
-              <p className="text-tsa-navy font-medium mb-2">{leader.position}</p>
-              <p className="text-gray-600 text-sm mb-3">{leader.grade}</p>
-              <p className="text-gray-600 text-sm">
-                {leader.bio}
+              <p className="text-tsa-navy font-semibold text-lg">
+                {leader.position}
               </p>
             </div>
           ))}

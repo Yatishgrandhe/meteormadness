@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-const ScrollToTop = () => {
+const ScrollToTop: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const ScrollToTop = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-tsa-navy text-white p-3 rounded-full shadow-lg hover:bg-blue-800 transition-all duration-300 z-50"
+          className="fixed bottom-8 right-8 z-40 w-14 h-14 bg-tsa-navy hover:bg-blue-800 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center"
           aria-label="Scroll to top"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

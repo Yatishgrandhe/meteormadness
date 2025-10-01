@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
-
 export const metadata: Metadata = {
-  title: 'CATATSA - Catawba Ridge High School TSA',
-  description: 'Technology Student Association at Catawba Ridge High School',
+  title: 'CATA TSA',
+  description: 'Technology Student Association at Central Academy of Technology and Arts - Innovating the Future, Today.',
+  icons: {
+    icon: '/images/tsa-logo.png',
+    shortcut: '/images/tsa-logo.png',
+    apple: '/images/tsa-logo.png',
+  },
 };
 
 export default function RootLayout({
@@ -16,7 +18,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <link rel="icon" href="/images/tsa-logo.png" type="image/png" />
+        <link rel="shortcut icon" href="/images/tsa-logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/images/tsa-logo.png" />
+      </head>
+      <body className="font-body">{children}</body>
     </html>
   );
 }
