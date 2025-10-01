@@ -72,48 +72,52 @@ const EventsSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
-          <button
-            onClick={() => setSelectedCategory('All')}
-            className={`px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 ${
-              selectedCategory === 'All'
-                ? 'bg-tsa-navy text-white shadow-lg'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:shadow-md'
-            }`}
-          >
-            All Events
-          </button>
-          {eventCategories.map((category) => (
+        {/* Category Filter - Mobile Optimized */}
+        <div className="mb-12 sm:mb-16">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
             <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-3 ${
-                selectedCategory === category
+              onClick={() => setSelectedCategory('All')}
+              className={`px-4 sm:px-6 lg:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base lg:text-lg transition-colors duration-200 ${
+                selectedCategory === 'All'
                   ? 'bg-tsa-navy text-white shadow-lg'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:shadow-md'
               }`}
             >
-              {getCategoryIcon(category)}
-              {category}
+              All Events
             </button>
-          ))}
+            {eventCategories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`px-3 sm:px-6 lg:px-8 py-3 sm:py-4 rounded-full font-semibold text-xs sm:text-base lg:text-lg transition-colors duration-200 flex items-center gap-2 sm:gap-3 ${
+                  selectedCategory === category
+                    ? 'bg-tsa-navy text-white shadow-lg'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:shadow-md'
+                }`}
+              >
+                <span className="hidden sm:inline">{getCategoryIcon(category)}</span>
+                <span className="sm:hidden text-xs">{category.split(' ')[0]}</span>
+                <span className="hidden sm:inline">{category}</span>
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Events Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Events Grid - Mobile Single Column */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filteredEvents.map((event, index) => (
-            <div key={index} className="card-compact group">
-              <div className="flex items-start justify-between mb-6">
-                <h3 className="text-xl font-heading font-bold text-gray-900 flex-1 group-hover:text-tsa-navy transition-colors duration-300">
+            <div key={index} className="card-compact group opera-optimize">
+              <div className="flex items-start justify-between mb-4 sm:mb-6">
+                <h3 className="text-lg sm:text-xl font-heading font-bold text-gray-900 flex-1 group-hover:text-tsa-navy transition-colors duration-200 pr-2">
                   {event.name}
                 </h3>
                 <button
                   onClick={() => toggleEventExpansion(event.name)}
-                  className="ml-4 p-2 text-tsa-navy hover:bg-gray-100 rounded-lg transition-all duration-300 hover:scale-110"
+                  className="flex-shrink-0 p-2 text-tsa-navy hover:bg-gray-100 rounded-lg transition-colors duration-200 touch-manipulation"
+                  aria-label={`${expandedEvents.has(event.name) ? 'Collapse' : 'Expand'} ${event.name}`}
                 >
                   <svg 
-                    className={`w-6 h-6 transition-transform duration-300 ${expandedEvents.has(event.name) ? 'rotate-180' : ''}`}
+                    className={`w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-200 ${expandedEvents.has(event.name) ? 'rotate-180' : ''}`}
                     fill="none" 
                     stroke="currentColor" 
                     viewBox="0 0 24 24"
@@ -123,25 +127,25 @@ const EventsSection: React.FC = () => {
                 </button>
               </div>
               
-              <p className="text-gray-600 text-base mb-6 leading-relaxed line-clamp-3">
+              <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed line-clamp-3">
                 {event.description}
               </p>
               
               {expandedEvents.has(event.name) && (
-                <div className="border-t border-gray-200 pt-6 space-y-4">
-                  <div className="bg-blue-50 rounded-lg p-4">
-                    <p className="text-sm font-semibold text-tsa-navy mb-2">
+                <div className="border-t border-gray-200 pt-4 sm:pt-6 space-y-4">
+                  <div className="bg-blue-50 rounded-lg p-3 sm:p-4">
+                    <p className="text-xs sm:text-sm font-semibold text-tsa-navy mb-2">
                       Sponsor Appeal:
                     </p>
-                    <p className="text-sm text-gray-700 italic leading-relaxed">
+                    <p className="text-xs sm:text-sm text-gray-700 italic leading-relaxed">
                       {event.sponsorAppeal}
                     </p>
                   </div>
                 </div>
               )}
               
-              <div className="mt-6">
-                <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-100 to-blue-50 text-blue-800 text-sm font-semibold rounded-full border border-blue-200">
+              <div className="mt-4 sm:mt-6">
+                <span className="inline-block px-3 sm:px-4 py-1 sm:py-2 bg-gradient-to-r from-blue-100 to-blue-50 text-blue-800 text-xs sm:text-sm font-semibold rounded-full border border-blue-200">
                   {event.category}
                 </span>
               </div>

@@ -150,4 +150,64 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  
+  /* Mobile-specific optimizations */
+  .touch-manipulation {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Mobile-friendly text sizing */
+  @media (max-width: 640px) {
+    .mobile-text-sm {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+    
+    .mobile-text-base {
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+    
+    .mobile-text-lg {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+    }
+    
+    .mobile-text-xl {
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+    }
+  }
+  
+  /* Mobile button optimizations */
+  @media (max-width: 640px) {
+    .btn-primary,
+    .btn-secondary,
+    .btn-outline {
+      min-height: 44px;
+      padding: 12px 24px;
+      font-size: 16px;
+      touch-action: manipulation;
+    }
+  }
+  
+  /* Mobile card optimizations */
+  @media (max-width: 640px) {
+    .card,
+    .card-compact {
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+  
+  /* Mobile navigation optimizations */
+  @media (max-width: 768px) {
+    .mobile-nav-item {
+      min-height: 44px;
+      padding: 12px 16px;
+      font-size: 18px;
+      touch-action: manipulation;
+    }
+  }
 }

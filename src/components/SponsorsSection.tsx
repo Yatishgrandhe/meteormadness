@@ -50,40 +50,40 @@ const SponsorsSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Sponsor Benefits */}
-        <div className="gradient-bg rounded-3xl p-12 md:p-16 mb-20 shadow-2xl">
-          <h3 className="text-3xl md:text-4xl font-heading font-bold text-white mb-12 text-center">
+        {/* Sponsor Benefits - Mobile Optimized */}
+        <div className="gradient-bg rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 xl:p-16 mb-12 sm:mb-16 lg:mb-20 shadow-2xl opera-optimize">
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-white mb-8 sm:mb-12 text-center">
             Sponsorship Benefits
           </h3>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-start space-x-6">
-                <div className="flex-shrink-0 w-8 h-8 bg-tsa-red rounded-full flex items-center justify-center mt-1 shadow-lg">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div key={index} className="flex items-start space-x-4 sm:space-x-6">
+                <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 bg-tsa-red rounded-full flex items-center justify-center mt-1 shadow-lg">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <p className="text-white text-xl leading-relaxed">{benefit}</p>
+                <p className="text-white text-base sm:text-lg lg:text-xl leading-relaxed">{benefit}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Sponsor Tiers */}
-        <div className="mb-20">
-          <h3 className="text-4xl md:text-5xl font-heading font-bold text-gradient mb-12 text-center">
+        {/* Sponsor Tiers - Mobile Single Column */}
+        <div className="mb-12 sm:mb-16 lg:mb-20">
+          <h3 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-gradient mb-8 sm:mb-12 text-center">
             Sponsorship Tiers
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {sponsorTiers.map((tier, index) => (
-              <div key={index} className={`${tier.color} ${tier.borderColor} border-2 rounded-2xl p-8 text-center transform hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl`}>
-                <h4 className={`text-2xl font-heading font-bold ${tier.textColor} mb-6`}>
+              <div key={index} className={`${tier.color} ${tier.borderColor} border-2 rounded-xl sm:rounded-2xl p-6 sm:p-8 text-center transition-shadow duration-200 shadow-lg hover:shadow-xl opera-optimize`}>
+                <h4 className={`text-xl sm:text-2xl font-heading font-bold ${tier.textColor} mb-4 sm:mb-6`}>
                   {tier.name}
                 </h4>
-                <div className="w-32 h-32 mx-auto mb-6 bg-white rounded-xl flex items-center justify-center border-2 border-dashed border-gray-300 shadow-inner">
-                  <span className="text-gray-500 text-sm font-medium">Logo</span>
+                <div className="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 sm:mb-6 bg-white rounded-lg sm:rounded-xl flex items-center justify-center border-2 border-dashed border-gray-300 shadow-inner">
+                  <span className="text-gray-500 text-xs sm:text-sm font-medium">Logo</span>
                 </div>
-                <p className={`text-base ${tier.textColor} opacity-75 font-medium`}>
+                <p className={`text-sm sm:text-base ${tier.textColor} opacity-75 font-medium`}>
                   Tier {index + 1} sponsorship level
                 </p>
               </div>
@@ -91,20 +91,20 @@ const SponsorsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Call to Action */}
+        {/* Call to Action - Mobile Optimized */}
         <div className="text-center">
-          <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl p-12 md:p-16 shadow-xl">
-            <h3 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-8">
+          <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 xl:p-16 shadow-xl opera-optimize">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-gray-900 mb-6 sm:mb-8">
               Ready to Support the Future?
             </h3>
-            <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
               Download our sponsorship packet to learn more about opportunities and benefits, or contact us directly to discuss how your organization can partner with us.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="btn-primary text-lg">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+              <button className="btn-primary text-base sm:text-lg touch-manipulation">
                 Download Sponsorship Packet
               </button>
-              <button className="btn-secondary text-lg">
+              <button className="btn-secondary text-base sm:text-lg touch-manipulation">
                 Contact Us
               </button>
             </div>
