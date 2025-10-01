@@ -13,7 +13,7 @@ const HeroSection: React.FC = () => {
       <div className="container-max relative z-30">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-[calc(100vh-5rem)]">
           {/* Content */}
-          <div className="text-white spacing-y-lg order-1">
+          <div className="text-white spacing-y-lg order-1 lg:order-1">
             <div className="spacing-y">
               <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold leading-tight tracking-tight">
                 {chapterInfo.headline}
@@ -27,62 +27,6 @@ const HeroSection: React.FC = () => {
               <p className="text-lg md:text-xl text-blue-100 leading-relaxed max-w-2xl">
                 {chapterInfo.mission}
               </p>
-              
-              {/* Why Join TSA Bullet Points */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 lg:p-8 border border-white/20">
-                <h3 className="text-xl sm:text-2xl font-heading font-bold text-white mb-4 sm:mb-6">Why Join TSA?</h3>
-                <div className="space-y-3 sm:space-y-4">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-6 h-6 bg-tsa-red rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <p className="text-blue-100 text-base sm:text-lg">Develop Real-World Skills</p>
-                  </div>
-                  <div className="flex items-start space-x-3 sm:space-x-4">
-                    <div className="w-5 h-5 sm:w-6 sm:h-6 bg-tsa-red rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <p className="text-blue-100 text-base sm:text-lg">Build Your Resume & Portfolio</p>
-                  </div>
-                  <div className="flex items-start space-x-3 sm:space-x-4">
-                    <div className="w-5 h-5 sm:w-6 sm:h-6 bg-tsa-red rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <p className="text-blue-100 text-base sm:text-lg">Compete and Achieve</p>
-                  </div>
-                  <div className="flex items-start space-x-3 sm:space-x-4">
-                    <div className="w-5 h-5 sm:w-6 sm:h-6 bg-tsa-red rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <p className="text-blue-100 text-base sm:text-lg">Network with Professionals</p>
-                  </div>
-                  <div className="flex items-start space-x-3 sm:space-x-4">
-                    <div className="w-5 h-5 sm:w-6 sm:h-6 bg-tsa-red rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <p className="text-blue-100 text-base sm:text-lg">Become a Leader</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-6 pt-4">
-                <button className="btn-secondary text-lg">
-                  Sponsor Us
-                </button>
-                <button className="btn-outline text-lg">
-                  Learn More
-                </button>
-              </div>
             </div>
           </div>
 
@@ -105,6 +49,128 @@ const HeroSection: React.FC = () => {
             {/* Decorative Elements */}
             <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-16 h-16 sm:w-24 sm:h-24 bg-tsa-red rounded-full opacity-20 blur-xl opera-optimize"></div>
             <div className="absolute -bottom-3 -left-3 sm:-bottom-6 sm:-left-6 w-20 h-20 sm:w-32 sm:h-32 bg-blue-300 rounded-full opacity-20 blur-xl opera-optimize"></div>
+          </div>
+        </div>
+        
+        {/* Why Join TSA Section - Mobile Layout */}
+        <div className="lg:hidden mt-12">
+          <div className="text-white spacing-y">
+            {/* Why Join TSA Bullet Points */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/20">
+              <h3 className="text-xl sm:text-2xl font-heading font-bold text-white mb-4 sm:mb-6">Why Join TSA?</h3>
+              <div className="space-y-3 sm:space-y-4">
+                <div className="flex items-start space-x-4">
+                  <div className="w-6 h-6 bg-tsa-red rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p className="text-blue-100 text-base sm:text-lg">Develop Real-World Skills</p>
+                </div>
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-tsa-red rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p className="text-blue-100 text-base sm:text-lg">Build Your Resume & Portfolio</p>
+                </div>
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-tsa-red rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p className="text-blue-100 text-base sm:text-lg">Compete and Achieve</p>
+                </div>
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-tsa-red rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p className="text-blue-100 text-base sm:text-lg">Network with Professionals</p>
+                </div>
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-tsa-red rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p className="text-blue-100 text-base sm:text-lg">Become a Leader</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-6 pt-4">
+              <button className="btn-secondary text-lg">
+                Sponsor Us
+              </button>
+              <button className="btn-outline text-lg">
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        {/* Desktop Why Join TSA Section */}
+        <div className="hidden lg:block mt-12">
+          <div className="text-white spacing-y">
+            {/* Why Join TSA Bullet Points */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-white/20">
+              <h3 className="text-xl sm:text-2xl font-heading font-bold text-white mb-4 sm:mb-6">Why Join TSA?</h3>
+              <div className="space-y-3 sm:space-y-4">
+                <div className="flex items-start space-x-4">
+                  <div className="w-6 h-6 bg-tsa-red rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p className="text-blue-100 text-base sm:text-lg">Develop Real-World Skills</p>
+                </div>
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-tsa-red rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p className="text-blue-100 text-base sm:text-lg">Build Your Resume & Portfolio</p>
+                </div>
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-tsa-red rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p className="text-blue-100 text-base sm:text-lg">Compete and Achieve</p>
+                </div>
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-tsa-red rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p className="text-blue-100 text-base sm:text-lg">Network with Professionals</p>
+                </div>
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-tsa-red rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p className="text-blue-100 text-base sm:text-lg">Become a Leader</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-6 pt-4">
+              <button className="btn-secondary text-lg">
+                Sponsor Us
+              </button>
+              <button className="btn-outline text-lg">
+                Learn More
+              </button>
+            </div>
           </div>
         </div>
       </div>
