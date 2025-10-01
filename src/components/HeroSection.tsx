@@ -13,7 +13,7 @@ const HeroSection: React.FC = () => {
       <div className="container-max relative z-30">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-[calc(100vh-5rem)]">
           {/* Content */}
-          <div className="text-white spacing-y-lg order-2 lg:order-1">
+          <div className="text-white spacing-y-lg order-1">
             <div className="spacing-y">
               <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold leading-tight tracking-tight">
                 {chapterInfo.headline}
@@ -87,7 +87,7 @@ const HeroSection: React.FC = () => {
           </div>
 
           {/* Hero Image Placeholder */}
-          <div className="relative order-1 lg:order-2 opera-optimize">
+          <div className="relative order-2 lg:order-2 opera-optimize">
             <div className="gradient-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 transform rotate-1 sm:rotate-2 lg:rotate-3 hover:rotate-0 transition-transform duration-300">
               <div className="aspect-video bg-gradient-to-br from-white/20 to-white/5 rounded-xl sm:rounded-2xl flex items-center justify-center border-2 border-white/30">
                 <div className="text-center text-white spacing-y-sm">
