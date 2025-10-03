@@ -50,11 +50,13 @@ export const chapterInfo: ChapterInfo = {
 };
 
 export const leadership: Leadership[] = [
-  { name: "[President's Name]", position: "President" },
-  { name: "[Vice President's Name]", position: "Vice President" },
-  { name: "[Secretary's Name]", position: "Secretary" },
-  { name: "[Treasurer's Name]", position: "Treasurer" },
-  { name: "[Advisor's Name]", position: "Faculty Advisor" }
+  { name: "Pratham Shah", position: "President" },
+  { name: "Dhruti Karaturi", position: "Vice President" },
+  { name: "Vidhu Keesari", position: "Secretary/Treasurer" },
+  { name: "Lauren Byron", position: "Reporter" },
+  { name: "Oliver Theniusse", position: "Computer Administrator" },
+  { name: "Ani Muppana", position: "Sergeant at Arms" },
+  { name: "Abhinav Kurukunda", position: "Director" }
 ];
 
 export const events: Event[] = [
