@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,19 +8,43 @@
     scroll-behavior: smooth;
   }
   
-  body {
-    font-family: 'Open Sans', sans-serif;
-    /* Opera performance optimizations */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    /* Reduce repaints and reflows */
-    will-change: auto;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-  }
+      body {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        /* Opera performance optimizations */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        font-variant-numeric: tabular-nums;
+        /* Reduce repaints and reflows */
+        will-change: auto;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+      }
+      
+      /* Stylish text utilities */
+      .text-display {
+        font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+      }
+      
+      .text-heading {
+        font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+      
+      .text-body {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        line-height: 1.6;
+      }
   
   /* Opera-specific optimizations */
   * {

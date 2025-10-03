@@ -30,8 +30,23 @@ const config: Config = {
         }
       },
       fontFamily: {
-        'heading': ['Montserrat', 'sans-serif'],
-        'body': ['Open Sans', 'sans-serif'],
+        'heading': ['Poppins', 'system-ui', '-apple-system', 'sans-serif'],
+        'body': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        'display': ['Poppins', 'system-ui', '-apple-system', 'sans-serif'],
+      },
+      fontWeight: {
+        'thin': '300',
+        'light': '400',
+        'normal': '500',
+        'medium': '600',
+        'semibold': '700',
+        'bold': '800',
+      },
+      letterSpacing: {
+        'tight': '-0.025em',
+        'snug': '-0.015em',
+        'relaxed': '0.025em',
+        'wide': '0.05em',
       },
       spacing: {
         '18': '4.5rem',
