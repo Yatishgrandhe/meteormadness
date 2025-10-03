@@ -30,9 +30,9 @@ const config: Config = {
         }
       },
       fontFamily: {
-        'heading': ['Poppins', 'system-ui', '-apple-system', 'sans-serif'],
-        'body': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        'display': ['Poppins', 'system-ui', '-apple-system', 'sans-serif'],
+        'heading': ['Nunito', 'system-ui', '-apple-system', 'sans-serif'],
+        'body': ['Roboto', 'system-ui', '-apple-system', 'sans-serif'],
+        'display': ['Nunito', 'system-ui', '-apple-system', 'sans-serif'],
       },
       fontWeight: {
         'thin': '300',
