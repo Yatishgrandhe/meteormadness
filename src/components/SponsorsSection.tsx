@@ -1,32 +1,13 @@
 import React from 'react';
 
 const SponsorsSection: React.FC = () => {
-  const sponsorTiers = [
-    {
-      name: 'Platinum',
-      color: 'bg-gray-100',
-      textColor: 'text-gray-800',
-      borderColor: 'border-gray-300'
-    },
-    {
-      name: 'Gold',
-      color: 'bg-yellow-50',
-      textColor: 'text-yellow-800',
-      borderColor: 'border-yellow-300'
-    },
-    {
-      name: 'Silver',
-      color: 'bg-gray-50',
-      textColor: 'text-gray-700',
-      borderColor: 'border-gray-200'
-    },
-    {
-      name: 'Bronze',
-      color: 'bg-orange-50',
-      textColor: 'text-orange-800',
-      borderColor: 'border-orange-300'
-    }
-  ];
+  const sponsorTier = {
+    name: 'Support TSA',
+    amount: '$500+',
+    color: 'bg-gradient-to-br from-tsa-navy to-blue-800',
+    textColor: 'text-white',
+    borderColor: 'border-tsa-navy'
+  };
 
   const benefits = [
     "Showcase your company's commitment to STEM education and community development",
@@ -69,25 +50,35 @@ const SponsorsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Sponsor Tiers - Mobile Single Column */}
+        {/* Sponsorship Level - Single Tier */}
         <div className="mb-12 sm:mb-16 lg:mb-20">
           <h3 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-gradient mb-8 sm:mb-12 text-center">
-            Sponsorship Tiers
+            Sponsorship Level
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {sponsorTiers.map((tier, index) => (
-              <div key={index} className={`${tier.color} ${tier.borderColor} border-2 rounded-xl sm:rounded-2xl p-6 sm:p-8 text-center transition-shadow duration-200 shadow-lg hover:shadow-xl opera-optimize`}>
-                <h4 className={`text-xl sm:text-2xl font-heading font-bold ${tier.textColor} mb-4 sm:mb-6`}>
-                  {tier.name}
+          <div className="flex justify-center">
+            <div className={`${sponsorTier.color} border-2 ${sponsorTier.borderColor} rounded-2xl sm:rounded-3xl p-8 sm:p-12 lg:p-16 text-center transition-shadow duration-200 shadow-xl hover:shadow-2xl opera-optimize max-w-2xl`}>
+              <div className="mb-6 sm:mb-8">
+                <h4 className={`text-3xl sm:text-4xl font-heading font-bold ${sponsorTier.textColor} mb-2`}>
+                  {sponsorTier.name}
                 </h4>
-                <div className="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 sm:mb-6 bg-white rounded-lg sm:rounded-xl flex items-center justify-center border-2 border-dashed border-gray-300 shadow-inner">
-                  <span className="text-gray-500 text-xs sm:text-sm font-medium">Logo</span>
-                </div>
-                <p className={`text-sm sm:text-base ${tier.textColor} opacity-75 font-medium`}>
-                  Tier {index + 1} sponsorship level
+                <p className={`text-xl sm:text-2xl ${sponsorTier.textColor} font-semibold opacity-90`}>
+                  {sponsorTier.amount}
                 </p>
               </div>
-            ))}
+              
+              <div className="w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6 sm:mb-8 bg-white bg-opacity-20 rounded-xl sm:rounded-2xl flex items-center justify-center border-2 border-dashed border-white border-opacity-40 shadow-inner">
+                <span className="text-white text-sm sm:text-base font-medium opacity-75">Your Logo Here</span>
+              </div>
+              
+              <div className={`text-base sm:text-lg ${sponsorTier.textColor} opacity-90 leading-relaxed`}>
+                <p className="mb-4">
+                  Support our TSA chapter with a starting donation of $500 or more.
+                </p>
+                <p className="text-sm sm:text-base opacity-75">
+                  All donations help us compete, learn, and grow as future technology leaders.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 

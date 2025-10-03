@@ -215,11 +215,8 @@ const SponsorForm: React.FC<SponsorFormProps> = ({ isOpen, onClose }) => {
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-tsa-navy focus:border-transparent transition-all duration-200 appearance-none bg-white cursor-pointer hover:border-gray-400"
                   >
                     <option value="">Select sponsorship level</option>
-                    <option value="Platinum">🏆 Platinum ($5,000+)</option>
-                    <option value="Gold">🥇 Gold ($2,500 - $4,999)</option>
-                    <option value="Silver">🥈 Silver ($1,000 - $2,499)</option>
-                    <option value="Bronze">🥉 Bronze ($500 - $999)</option>
-                    <option value="Other">💼 Other Amount</option>
+                    <option value="Support TSA - $500+">💐 Support TSA ($500+)</option>
+                    <option value="Custom Amount">💼 Custom Amount (Less than $500)</option>
                   </select>
                   <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                     <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
