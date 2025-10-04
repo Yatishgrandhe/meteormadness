@@ -26,7 +26,7 @@ const nextConfig: NextConfig = {
     ],
   },
   // Output file tracing root to fix workspace warning
-  outputFileTracingRoot: undefined,
+  outputFileTracingRoot: __dirname,
   // ESLint configuration
   eslint: {
     ignoreDuringBuilds: true,
