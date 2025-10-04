@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
   /* NASA Eyes on Asteroids Dark Theme */
@@ -20,6 +18,23 @@
   --hover-bg: #2a2a2a;
 }
 
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-secondary-bg: var(--secondary-bg);
+  --color-primary-blue: var(--primary-blue);
+  --color-primary-blue-dark: var(--primary-blue-dark);
+  --color-accent-orange: var(--accent-orange);
+  --color-accent-red: var(--accent-red);
+  --color-success-green: var(--success-green);
+  --color-warning-yellow: var(--warning-yellow);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border-color);
+  --color-card-bg: var(--card-bg);
+  --color-hover-bg: var(--hover-bg);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
 
 /* NASA Eyes on Asteroids Dark Theme - Always Dark */
 @media (prefers-color-scheme: dark) {

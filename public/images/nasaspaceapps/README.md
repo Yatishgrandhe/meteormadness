@@ -22,7 +22,7 @@ A professional Near Earth Objects monitoring system with AI analysis and real-ti
 
 ### Prerequisites
 
-- Node.js 20+ 
+- Node.js 18+ 
 - npm or yarn
 - NASA API key from [api.nasa.gov](https://api.nasa.gov/)
 - (Optional) Gemini AI API key from [ai.google.dev](https://ai.google.dev/)
@@ -42,7 +42,7 @@ npm install
 
 3. Create environment file:
 ```bash
-cp env.example .env.local
+cp .env.example .env.local
 ```
 
 4. Add your API keys to `.env.local`:

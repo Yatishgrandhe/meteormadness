@@ -12,8 +12,8 @@ const nextConfig: NextConfig = {
   // Experimental features to improve performance
   experimental: {
     // optimizeCss: true, // Disabled due to critters dependency issues
-    // Disable server components for CSS processing
-    serverComponentsExternalPackages: ['tailwindcss', 'postcss', 'autoprefixer'],
+    // Disable Turbopack completely to avoid Node.js module conflicts
+    turbo: false,
   },
   // External packages for server components
   serverExternalPackages: [
@@ -23,13 +23,7 @@ const nextConfig: NextConfig = {
     'fs',
     'lightningcss',
     'perf_hooks',
-    'module',
-    'tailwindcss',
-    'postcss',
-    'autoprefixer',
-    'jiti',
-    '@alloc/quick-lru',
-    'is-glob'
+    'module'
   ],
   // Image optimization for Vercel
   images: {
@@ -73,25 +67,7 @@ const nextConfig: NextConfig = {
         perf_hooks: false,
         lightningcss: false,
       };
-      
-      // Exclude problematic modules from client bundle
-      config.externals = config.externals || [];
-      config.externals.push({
-        'fs': 'commonjs fs',
-        'module': 'commonjs module',
-        'path': 'commonjs path',
-        'jiti': 'commonjs jiti',
-        '@alloc/quick-lru': 'commonjs @alloc/quick-lru',
-        'is-glob': 'commonjs is-glob',
-        'fast-glob': 'commonjs fast-glob',
-      });
     }
-    
-    // Handle Tailwind CSS module resolution
-    config.resolve.alias = {
-      ...config.resolve.alias,
-    };
-    
     return config;
   },
 };
