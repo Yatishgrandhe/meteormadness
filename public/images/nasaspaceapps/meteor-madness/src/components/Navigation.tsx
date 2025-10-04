@@ -4,7 +4,9 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Zap, Menu, X } from 'lucide-react'
 
-interface NavigationProps {}
+interface NavigationProps {
+  // Empty interface for future props
+}
 
 export default function Navigation({}: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)

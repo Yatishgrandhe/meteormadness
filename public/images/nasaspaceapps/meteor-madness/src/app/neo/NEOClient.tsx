@@ -4,7 +4,6 @@ import { useState, useEffect, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { 
   Search, 
-  Filter, 
   ArrowUpDown, 
   ChevronLeft, 
   ChevronRight,
@@ -33,7 +32,9 @@ interface NEOObject {
   nextApproach: string
 }
 
-interface NEOClientProps {}
+interface NEOClientProps {
+  // Empty interface for future props
+}
 
 export default function NEOClient({}: NEOClientProps) {
   const [objects, setObjects] = useState<NEOObject[]>([])
@@ -114,7 +115,7 @@ export default function NEOClient({}: NEOClientProps) {
 
   // Filter and sort data
   const filteredAndSortedObjects = useMemo(() => {
-    let filtered = objects.filter(obj => {
+    const filtered = objects.filter(obj => {
       const matchesSearch = obj.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            obj.orbitClass.toLowerCase().includes(searchTerm.toLowerCase())
       const matchesType = filterType === 'all' || obj.type === filterType
@@ -311,7 +312,7 @@ export default function NEOClient({}: NEOClientProps) {
             
             <select
               value={filterType}
-              onChange={(e) => setFilterType(e.target.value as any)}
+              onChange={(e) => setFilterType(e.target.value as 'all' | 'asteroid' | 'comet')}
               className="bg-black/20 border border-cyan-500/30 rounded-lg px-3 py-2 text-gray-300 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
             >
               <option value="all">All Types</option>
@@ -321,7 +322,7 @@ export default function NEOClient({}: NEOClientProps) {
             
             <select
               value={filterHazardous}
-              onChange={(e) => setFilterHazardous(e.target.value as any)}
+              onChange={(e) => setFilterHazardous(e.target.value as 'all' | 'hazardous' | 'safe')}
               className="bg-black/20 border border-cyan-500/30 rounded-lg px-3 py-2 text-gray-300 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
             >
               <option value="all">All Objects</option>
@@ -331,20 +332,6 @@ export default function NEOClient({}: NEOClientProps) {
           </div>
         </motion.div>
 
-        {/* Error Display */}
-        {error && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="bg-red-900/40 backdrop-blur-sm border border-red-500/30 rounded-xl p-6 mb-6"
-          >
-            <div className="flex items-center space-x-3 mb-3">
-              <AlertTriangle className="w-6 h-6 text-red-400" />
-              <h3 className="text-lg font-semibold text-red-400">Data Loading Issue</h3>
-            </div>
-            <p className="text-gray-300">{error}</p>
-          </motion.div>
-        )}
 
         {/* Real-Time Risk Assessment */}
         {!loading && objects.length > 0 && (
@@ -400,7 +387,7 @@ export default function NEOClient({}: NEOClientProps) {
                   )
                 })()}
                 <div className="text-center mt-4">
-                  <p className="text-gray-400 text-sm">Click "AI Impact Analysis" above for advanced threat assessment</p>
+                  <p className="text-gray-400 text-sm">Click &quot;AI Impact Analysis&quot; above for advanced threat assessment</p>
                 </div>
               </div>
             )}

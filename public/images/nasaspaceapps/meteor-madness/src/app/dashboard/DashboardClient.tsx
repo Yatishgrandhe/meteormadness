@@ -1,17 +1,19 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Zap, Shield, Target, TrendingUp, Users, Globe, Activity } from 'lucide-react'
+import { Zap, Shield, Target, TrendingUp, Globe, Activity } from 'lucide-react'
 import Navigation from '@/components/Navigation'
-import { fetchNEOData, fetchCometData, transformNEOData, transformCometData } from '@/lib/api/neo'
+import { fetchNEOData, fetchCometData, transformNEOData, transformCometData, type NEOObject, type CometObject } from '@/lib/api/neo'
 import { analyzeImpactWithGemini } from '@/lib/api/gemini'
 import { useEffect, useState } from 'react'
 
-interface DashboardClientProps {}
+interface DashboardClientProps {
+  // Empty interface for future props
+}
 
 export default function DashboardClient({}: DashboardClientProps) {
-  const [neoData, setNeoData] = useState<any[]>([])
-  const [cometData, setCometData] = useState<any[]>([])
+  const [neoData, setNeoData] = useState<NEOObject[]>([])
+  const [cometData, setCometData] = useState<CometObject[]>([])
   const [loading, setLoading] = useState(true)
   const [aiAnalysis, setAiAnalysis] = useState<string>('')
   const [analyzing, setAnalyzing] = useState(false)
@@ -102,6 +104,7 @@ export default function DashboardClient({}: DashboardClientProps) {
 
   const hazardousCount = [...neoData, ...cometData].filter(obj => obj.isHazardous).length
   const totalObjects = neoData.length + cometData.length
+  // Calculate recent approaches (last 30 days)
   const recentApproaches = [...neoData, ...cometData]
     .filter(obj => new Date(obj.approachDate) > new Date(Date.now() - 30 * 24 * 60 * 60 * 1000))
     .length
@@ -264,7 +267,7 @@ export default function DashboardClient({}: DashboardClientProps) {
                       object: obj
                     }
                   })
-                })().map((activity, index) => (
+                })().map((activity) => (
                   <motion.div 
                     key={index}
                     initial={{ opacity: 0, x: -20 }}

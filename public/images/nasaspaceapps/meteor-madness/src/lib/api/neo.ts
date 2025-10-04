@@ -119,10 +119,10 @@ export async function fetchCometData(): Promise<CometObject[]> {
     
     // Check if we have valid comet data
     if (data.data && Array.isArray(data.data) && data.data.length > 0) {
-      return data.data.map((comet: any, index: number) => {
+      return data.data.map((comet: unknown[], index: number) => {
         // JPL API returns arrays with specific field positions
-        const designation = comet[0] || `C/${new Date().getFullYear()}${String(index + 1).padStart(2, '0')}`
-        const name = comet[1] || comet[0] || `Comet ${index + 1}`
+        const designation = (comet[0] as string) || `C/${new Date().getFullYear()}${String(index + 1).padStart(2, '0')}`
+        const name = (comet[1] as string) || (comet[0] as string) || `Comet ${index + 1}`
         
         return {
           designation,
