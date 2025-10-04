@@ -1,0 +1,66 @@
+{
+  "name": "meteor-tracker",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.1.0",
+    "@supabase/supabase-js": "^2.39.3",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "eslint-config-next": "^15.5.4",
+    "framer-motion": "^11.0.0",
+    "lucide-react": "^0.544.0",
+    "next": "^15.5.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "recharts": "^2.12.0",
+    "tailwind-merge": "^2.2.0",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.0.0",
+    "@types/node": "^20.11.0",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^8.56.0",
+    "postcss": "^8.4.33",
+    "prettier": "^3.2.5",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "keywords": [
+    "meteor",
+    "asteroid",
+    "near-earth-objects",
+    "space",
+    "NASA",
+    "impact-assessment",
+    "nextjs",
+    "supabase",
+    "typescript"
+  ],
+  "author": "Meteor Tracker Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/meteor-tracker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/meteor-tracker/issues"
+  },
+  "homepage": "https://meteor-tracker.vercel.app"
+}

@@ -1,0 +1,25 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "functions": {
+    "src/app/api/**/*.ts": {
+      "maxDuration": 30
+    }
+  },
+  "regions": ["iad1"],
+  "env": {
+    "NEXT_PUBLIC_SUPABASE_URL": "@supabase_url",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@supabase_anon_key",
+    "SUPABASE_SERVICE_ROLE_KEY": "@supabase_service_role_key",
+    "NASA_API_KEY": "@nasa_api_key",
+    "NEAR_EARTH_COMETS_URL": "@near_earth_comets_url"
+  },
+  "rewrites": [
+    {
+      "source": "/api/sync-neo",
+      "destination": "/api/sync-neo"
+    }
+  ]
+}
