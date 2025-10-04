@@ -16,7 +16,15 @@ const nextConfig: NextConfig = {
     turbo: false,
   },
   // External packages for server components
-  serverExternalPackages: ['@nodelib/fs.scandir', '@nodelib/fs.stat', 'fast-glob'],
+  serverExternalPackages: [
+    '@nodelib/fs.scandir', 
+    '@nodelib/fs.stat', 
+    'fast-glob',
+    'fs',
+    'lightningcss',
+    'perf_hooks',
+    'module'
+  ],
   // Image optimization for Vercel
   images: {
     unoptimized: false,
@@ -57,6 +65,7 @@ const nextConfig: NextConfig = {
         zlib: false,
         querystring: false,
         perf_hooks: false,
+        lightningcss: false,
       };
     }
     return config;
