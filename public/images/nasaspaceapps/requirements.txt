@@ -1,0 +1,26 @@
+# Core Next.js Dependencies
+next==15.5.4
+react==19.1.0
+react-dom==19.1.0
+
+# UI and Animation Libraries
+framer-motion==12.23.22
+lucide-react==0.544.0
+
+# Development Dependencies
+@types/node==20.0.0
+@types/react==19.0.0
+@types/react-dom==19.0.0
+typescript==5.0.0
+
+# Linting and Code Quality
+eslint==9.0.0
+eslint-config-next==15.5.4
+@eslint/eslintrc==3.0.0
+
+# Styling
+tailwindcss==4.0.0
+@tailwindcss/postcss==4.0.0
+
+# Node.js Version Requirement
+node>=18.0.0

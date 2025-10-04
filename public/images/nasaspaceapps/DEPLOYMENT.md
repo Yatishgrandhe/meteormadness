@@ -1,137 +1,100 @@
-# Deployment Guide for Meteor Madness 🚀
+# Deployment Guide - Meteor Madness
 
-## Vercel Deployment (Recommended)
+## Prerequisites
 
-### Method 1: Deploy from GitHub (Easiest)
+- Node.js 18.0.0 or higher
+- npm 8.0.0 or higher
+- NASA API key (optional, for enhanced functionality)
 
-1. **Go to Vercel Dashboard**
-   - Visit [vercel.com](https://vercel.com)
-   - Sign in with GitHub
+## Environment Variables
 
-2. **Import Project**
-   - Click "New Project"
-   - Select the `Yatishgrandhe/meteormadness` repository
-   - Click "Import"
+Create a `.env.local` file in the root directory with the following variables:
 
-3. **Configure Environment Variables**
-   - In the deployment settings, add:
-     ```
-     NEXT_PUBLIC_NASA_API_KEY=your_nasa_api_key_here
-     NEXT_PUBLIC_GEMINI_API_KEY=your_gemini_api_key_here
-     ```
-   - Get NASA API key from: [api.nasa.gov](https://api.nasa.gov/)
-   - Get Gemini API key from: [ai.google.dev](https://ai.google.dev/) (optional)
+```bash
+# NASA API Configuration
+NEXT_PUBLIC_NASA_API_KEY=your_nasa_api_key_here
 
-4. **Deploy**
-   - Click "Deploy"
-   - Wait for build to complete
-   - Your app will be live at `https://meteormadness-[random].vercel.app`
+# Application Configuration
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+NEXT_PUBLIC_APP_NAME=Meteor Madness
 
-### Method 2: Deploy with Vercel CLI
+# Environment
+NODE_ENV=development
+NEXT_TELEMETRY_DISABLED=1
 
-1. **Install Vercel CLI**
+# API Endpoints
+NEXT_PUBLIC_NASA_BASE_URL=https://api.nasa.gov
+NEXT_PUBLIC_NEO_API_URL=https://api.nasa.gov/neo/rest/v1
+NEXT_PUBLIC_COMETS_API_URL=https://api.nasa.gov/neo/rest/v1/neo
+```
+
+## Local Development
+
+1. Install dependencies:
    ```bash
-   npm i -g vercel
+   npm install
    ```
 
-2. **Login to Vercel**
+2. Start the development server:
    ```bash
-   vercel login
+   npm run dev
    ```
 
-3. **Deploy**
-   ```bash
-   cd meteor-madness
-   vercel
-   ```
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-4. **Add Environment Variables**
-   ```bash
-   vercel env add NEXT_PUBLIC_NASA_API_KEY
-   vercel env add NEXT_PUBLIC_GEMINI_API_KEY
-   ```
+## Building for Production
 
-## Environment Variables Required
+```bash
+npm run build
+npm run start
+```
 
-| Variable | Description | Required | Where to Get |
-|----------|-------------|----------|--------------|
-| `NEXT_PUBLIC_NASA_API_KEY` | NASA API key for NEO data | ✅ Yes | [api.nasa.gov](https://api.nasa.gov/) |
-| `NEXT_PUBLIC_GEMINI_API_KEY` | Gemini AI API key | ❌ Optional | [ai.google.dev](https://ai.google.dev/) |
+## Deployment to Vercel
 
-## Getting API Keys
+1. Connect your GitHub repository to Vercel
+2. The `vercel.json` configuration will automatically handle:
+   - Node.js version (18.x)
+   - Build commands
+   - API routes with proper timeouts
+   - CORS headers
+   - Security headers
+   - Redirects
 
-### NASA API Key
-1. Go to [api.nasa.gov](https://api.nasa.gov/)
-2. Fill out the form with your details
-3. Check your email for the API key
-4. Free tier allows 1000 requests per hour
+## API Routes
 
-### Gemini API Key (Optional)
-1. Go to [ai.google.dev](https://ai.google.dev/)
-2. Sign in with Google account
-3. Create a new project or select existing
-4. Enable Gemini API
-5. Generate API key
-6. Free tier available
+- `/api/neo` - Near-Earth Object data
+- `/api/comets` - Comet data
 
-## Post-Deployment Checklist
+Both routes have a 30-second timeout and 1GB memory allocation.
 
-- [ ] Verify NASA API key is working (check dashboard loads data)
-- [ ] Test NEO page loads asteroid and comet data
-- [ ] Confirm AI analysis works (if Gemini key provided)
-- [ ] Check mobile responsiveness
-- [ ] Test all navigation links
-- [ ] Verify no console errors
+## Performance Optimization
 
-## Custom Domain (Optional)
+- Turbopack disabled for production builds
+- Webpack fallbacks for Node.js modules
+- Image optimization enabled
+- Static file serving optimized
 
-1. **Add Domain in Vercel**
-   - Go to project settings
-   - Click "Domains"
-   - Add your custom domain
+## Security Features
 
-2. **Update DNS**
-   - Add CNAME record pointing to Vercel
-   - Wait for SSL certificate (automatic)
+- X-Frame-Options: DENY
+- X-Content-Type-Options: nosniff
+- Referrer-Policy: strict-origin-when-cross-origin
+- X-XSS-Protection: 1; mode=block
+- CORS properly configured for API routes
 
 ## Troubleshooting
 
-### Common Issues
+### Build Issues
+- Ensure Node.js version is 18.0.0 or higher
+- Clear cache: `npm run clean`
+- Check TypeScript errors: `npm run type-check`
 
-1. **Build Fails**
-   - Check environment variables are set
-   - Ensure all dependencies are in package.json
-   - Check for TypeScript errors
+### API Issues
+- Verify NASA API key is set correctly
+- Check CORS headers for API routes
+- Monitor function timeouts (30 seconds max)
 
-2. **API Errors**
-   - Verify NASA API key is correct
-   - Check API rate limits
-   - Ensure network connectivity
-
-3. **Styling Issues**
-   - Clear browser cache
-   - Check CSS imports
-   - Verify Tailwind config
-
-### Performance Optimization
-
-- Images are automatically optimized by Vercel
-- API routes have 30-second timeout
-- Static assets are cached automatically
-- Edge functions for global performance
-
-## Monitoring
-
-- **Vercel Analytics**: Built-in performance monitoring
-- **Console Logs**: Check Vercel dashboard for errors
-- **API Monitoring**: NASA API status at [status.nasa.gov](https://status.nasa.gov/)
-
-## Support
-
-- **GitHub Issues**: Report bugs and feature requests
-- **Vercel Docs**: [vercel.com/docs](https://vercel.com/docs)
-- **Next.js Docs**: [nextjs.org/docs](https://nextjs.org/docs)
-
----
-
-Your Meteor Madness app is now live! 🌟
+### Performance Issues
+- Disable Next.js telemetry: `NEXT_TELEMETRY_DISABLED=1`
+- Use production build: `npm run build`
+- Monitor memory usage on API routes
