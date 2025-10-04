@@ -256,7 +256,8 @@ export default function DashboardClient({}: DashboardClientProps) {
                     .slice(0, 5)
                     
                   return recentObjects.map((obj, index) => {
-                    const timeAgo = Math.floor(Math.random() * 60) + 1
+                    // Use deterministic time calculation based on object properties to avoid hydration mismatch
+                    const timeAgo = Math.floor((obj.name.length + obj.diameter + index) % 60) + 1
                     const timeUnit = timeAgo === 1 ? 'minute' : 'minutes'
                     const isHazardous = obj.isHazardous
                     
@@ -267,12 +268,12 @@ export default function DashboardClient({}: DashboardClientProps) {
                       object: obj
                     }
                   })
-                })().map((activity) => (
+                })().map((activity, activityIndex) => (
                   <motion.div 
-                    key={index}
+                    key={activityIndex}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 1 + index * 0.1 }}
+                    transition={{ delay: 1 + activityIndex * 0.1 }}
                     whileHover={{ x: 5 }}
                     className="bg-gradient-to-r from-gray-900/50 to-cyan-900/30 rounded-xl p-4 border border-cyan-500/20 shadow-sm hover:shadow-md transition-all duration-300"
                   >
