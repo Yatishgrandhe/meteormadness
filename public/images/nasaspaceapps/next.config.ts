@@ -12,15 +12,8 @@ const nextConfig: NextConfig = {
   // Experimental features to improve performance
   experimental: {
     // optimizeCss: true, // Disabled due to critters dependency issues
-    // Disable Turbopack for production builds to avoid Node.js module conflicts
-    turbo: {
-      rules: {
-        '*.node': {
-          loaders: ['ignore-loader'],
-          as: '*.js',
-        },
-      },
-    },
+    // Disable Turbopack completely to avoid Node.js module conflicts
+    turbo: false,
   },
   // External packages for server components
   serverExternalPackages: ['@nodelib/fs.scandir', '@nodelib/fs.stat', 'fast-glob'],
@@ -63,6 +56,7 @@ const nextConfig: NextConfig = {
         https: false,
         zlib: false,
         querystring: false,
+        perf_hooks: false,
       };
     }
     return config;
