@@ -17,8 +17,8 @@
     "tailwindcss"
   ],
   "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=8.0.0"
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
   },
   "scripts": {
     "dev": "next dev",
@@ -29,7 +29,9 @@
     "type-check": "tsc --noEmit",
     "clean": "rm -rf .next out node_modules/.cache",
     "analyze": "ANALYZE=true npm run build",
-    "preview": "npm run build && npm run start"
+    "preview": "npm run build && npm run start",
+    "vercel-build": "npm run build",
+    "postbuild": "next telemetry disable"
   },
   "dependencies": {
     "framer-motion": "^12.23.22",

@@ -2,8 +2,8 @@
 
 ## Prerequisites
 
-- Node.js 18.0.0 or higher
-- npm 8.0.0 or higher
+- Node.js 20.0.0 or higher
+- npm 10.0.0 or higher
 - NASA API key (optional, for enhanced functionality)
 
 ## Environment Variables
@@ -53,7 +53,7 @@ npm run start
 
 1. Connect your GitHub repository to Vercel
 2. The `vercel.json` configuration will automatically handle:
-   - Node.js version (18.x)
+   - Node.js version (20.x)
    - Build commands
    - API routes with proper timeouts
    - CORS headers
@@ -85,7 +85,7 @@ Both routes have a 30-second timeout and 1GB memory allocation.
 ## Troubleshooting
 
 ### Build Issues
-- Ensure Node.js version is 18.0.0 or higher
+- Ensure Node.js version is 20.0.0 or higher
 - Clear cache: `npm run clean`
 - Check TypeScript errors: `npm run type-check`
 
